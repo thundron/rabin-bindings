@@ -1,11 +1,8 @@
 {
-  "name": "rabin",
-  "version": "1.6.0",
+  "name": "rabin-bindings",
+  "version": "1.7.3",
   "description": "node native bindings to a C rabin fingerprinting algorithm",
   "main": "index.js",
-  "bin": {
-    "rabin": "cli.js"
-  },
   "keywords": [
     "rabin",
     "cdc",
@@ -16,33 +13,38 @@
     "deduplication",
     "rsync"
   ],
+  "files": [
+    "index.*",
+    "prebuilds/*-node-*.tar.gz",
+    "src",
+    "binding.gyp",
+    "bindings.cc"
+  ],
   "scripts": {
-    "test": "echo \"It built! Add more tests later.\" && prebuild-ci",
     "install": "prebuild-install || node-gyp rebuild",
-    "prebuild": "prebuild --all --strip --verbose"
+    "prebuild": "prebuild --all --strip",
+    "prebuild-ia32": "prebuild --all -a ia32 --strip",
+    "upload": "node ./upload.js",
+    "download": "download-github-release -s node develar rabin-bindings ./prebuilds"
   },
-  "gypfile": true,
   "author": "max ogden",
   "license": "ISC",
   "dependencies": {
-    "bindings": "^1.2.1",
-    "bl": "^1.0.0",
-    "debug": "^2.2.0",
-    "minimist": "^1.2.0",
-    "nan": "^2.1.0",
-    "prebuild-install": "^2.1.0",
-    "readable-stream": "^2.0.4"
+    "bindings": "^1.3.0",
+    "nan": "^2.7.0",
+    "prebuild-install": "^2.3.0"
   },
   "devDependencies": {
-    "prebuild": "^6.0.2",
-    "prebuild-ci": "^2.0.0"
+    "prebuild": "^6.2.2",
+    "download-github-release": "^0.3.1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/datproject/rabin.git"
+    "url": "git+https://github.com/develar/rabin-bindings.git"
   },
   "bugs": {
-    "url": "https://github.com/datproject/rabin/issues"
+    "url": "https://github.com/develar/rabin-bindings/issues"
   },
-  "homepage": "https://github.com/datproject/rabin#readme"
+  "homepage": "https://github.com/develar/rabin#readme",
+  "types": "./index.d.ts"
 }
