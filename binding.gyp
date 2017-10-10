@@ -1,7 +1,7 @@
 {
   "targets": [
     {
-      "target_name": "rabin",
+      "target_name": "rabin-bindings",
       "conditions": [
           ["OS == 'win'", {
               "defines": [
