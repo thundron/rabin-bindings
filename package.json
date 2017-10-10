@@ -1,6 +1,6 @@
 {
   "name": "rabin-bindings",
-  "version": "1.0.0",
+  "version": "1.7.0",
   "description": "node native bindings to a C rabin fingerprinting algorithm",
   "keywords": [
     "rabin",
@@ -15,8 +15,9 @@
   "files": [],
   "scripts": {
     "install": "prebuild-install || node-gyp rebuild",
-    "prebuild": "prebuild --all --strip --verbose",
-    "upload": "node ./script/upload.js"
+    "prebuild": "prebuild --all --strip",
+    "prebuild-ia32": "prebuild -a ia32 --strip",
+    "upload": "node ./upload.js"
   },
   "gypfile": true,
   "author": "max ogden",
@@ -31,10 +32,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/develar/rabin.git"
+    "url": "git+https://github.com/develar/rabin-bindings.git"
   },
   "bugs": {
-    "url": "https://github.com/develar/rabin/issues"
+    "url": "https://github.com/develar/rabin-bindings/issues"
   },
   "homepage": "https://github.com/develar/rabin#readme"
 }
