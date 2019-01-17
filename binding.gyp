@@ -18,6 +18,17 @@
               'include_dirs': [
                 'src/win/'
               ]
+          }],
+        
+          ["OS == 'mac'", {
+              "xcode_settings": {
+                "OTHER_CPLUSPLUSFLAGS": [
+                  "-stdlib=libc++"
+                ],
+                "OTHER_LDFLAGS": [
+                  "-stdlib=libc++"
+                ]
+              }
           }]
       ],
       "sources": [ "bindings.cc", "src/rabin.cc", "src/rabin_wrap.cc"],
